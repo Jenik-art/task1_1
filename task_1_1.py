@@ -28,7 +28,6 @@ class task_1_1(unittest.TestCase):
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
     def open_group_page(self, wd):
-        # open group page
         wd.find_element_by_link_text("groups").click()
 
     def create_new_group(self, wd, group):
@@ -44,7 +43,14 @@ class task_1_1(unittest.TestCase):
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
         wd.find_element_by_name("group_footer").send_keys(group.footer)
+        # submit group creation
+        wd.find_element_by_name("submit").click()
 
+    def return_to_groups_page(self, wd):
+        wd.find_element_by_link_text("group page").click()
+
+    def logout(self, wd):
+        wd.find_element_by_link_text("Logout").click()
 
     def test_task_1_1(self):
         success = True
@@ -53,15 +59,9 @@ class task_1_1(unittest.TestCase):
         self.login(wd, username="admin", password="secret")
         self.open_group_page(wd)
         self.create_new_group(wd, Group(name="task_1_1", header="Header", footer="Footer"))
-        #submit group creation
-        wd.find_element_by_name("submit").click()
-        #return to group page
-        wd.find_element_by_link_text("group page").click()
-        #logout
-        wd.find_element_by_link_text("Logout").click()
+        self.return_to_groups_page(wd)
+        self.logout(wd)
         self.assertTrue(success)
-
-
 
 
 
