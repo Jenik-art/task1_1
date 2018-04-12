@@ -19,6 +19,7 @@ class task_1_3(unittest.TestCase):
         wd.get("http://localhost/addressbook/index.php")
 
     def login(self, wd, username, password):
+        self.open_home_page(wd)
         # login
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
@@ -67,8 +68,6 @@ class task_1_3(unittest.TestCase):
     def test_task_1_3(self):
         success = True
         wd = self.wd
-
-        self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.init_add_contact(wd, Contact( "Ivan", "Ivanovich", "Ivanov", "IvanCo", "New York, Brighton beach 100-200","+1111111111", "+12222222", "+3333333", "ivanovivan@ivanco.com"))
         self.logout(wd)
