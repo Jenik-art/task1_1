@@ -19,6 +19,7 @@ class task_1_1(unittest.TestCase):
         wd.get("http://localhost/addressbook")
 
     def login(self, wd, username, password):
+        self.open_home_page(wd)
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -31,6 +32,7 @@ class task_1_1(unittest.TestCase):
         wd.find_element_by_link_text("groups").click()
 
     def create_new_group(self, wd, group):
+        self.open_group_page(wd)
         # init group creation
         wd.find_element_by_name("new").click()
         # fill group form
@@ -45,6 +47,7 @@ class task_1_1(unittest.TestCase):
         wd.find_element_by_name("group_footer").send_keys(group.footer)
         # submit group creation
         wd.find_element_by_name("submit").click()
+        self.return_to_groups_page(wd)
 
     def return_to_groups_page(self, wd):
         wd.find_element_by_link_text("group page").click()
@@ -55,11 +58,8 @@ class task_1_1(unittest.TestCase):
     def test_task_1_1(self):
         success = True
         wd = self.wd
-        self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.open_group_page(wd)
         self.create_new_group(wd, Group(name="task_1_1", header="Header", footer="Footer"))
-        self.return_to_groups_page(wd)
         self.logout(wd)
         self.assertTrue(success)
 
