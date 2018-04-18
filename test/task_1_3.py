@@ -14,5 +14,5 @@ def app(request):
 
 def test_task_1_3(app):
     app.session.login(username="admin", password="secret")
-    app.init_add_contact(Contact( "Ivan", "Ivanovich", "Ivanov", "IvanCo", "New York, Brighton beach 100-200","+1111111111", "+12222222", "+3333333", "ivanovivan@ivanco.com"))
+    app.contact.add(Contact("Ivan", "Ivanovich", "Ivanov", "IvanCo", "New York, Brighton beach 100-200", "+1111111111", "+12222222", "+3333333", "ivanovivan@ivanco.com"))
     app.session.logout()
