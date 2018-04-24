@@ -3,7 +3,11 @@
 from model.group import Group
 
 
-def test_task_1_1(app):
-    app.group.create(Group(name="task_1_1", header="Header", footer="Footer"))
+def test_add_group(app):
+    app.group.create(Group(name="New group", header="Header", footer="Footer"))
+    app.session.logout()
+
+def test_add_empty_group(app):
+    app.group.create(Group(name="", header="", footer=""))
 
 
