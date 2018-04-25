@@ -6,7 +6,7 @@ class Application:
 
     def __init__(self):
         self.wd = WebDriver(capabilities={"marionette": False})
-        self.wd.implicitly_wait(30)
+        self.wd.implicitly_wait(5)
         self.session = SessionHelper(self)
         self.group = groupHelper(self)
         self.contact = contactHelper(self)
