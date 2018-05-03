@@ -10,6 +10,7 @@ class contactHelper:
         wd.find_element_by_link_text("add new").click()
         self.fill_contact_form(contact)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        self.contact_cache = None
 
     def fill_contact_form(self, contact):
         wd = self.app.wd
@@ -22,7 +23,7 @@ class contactHelper:
         self.change_field_value("mobile", contact.mobilephone)
         self.change_field_value("work", contact.workphone)
         self.change_field_value("email", contact.email)
-        contact_cache = None
+
 
 
 
@@ -32,7 +33,7 @@ class contactHelper:
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
         wd.find_element_by_link_text("home").click()
-        contact_cache = None
+        self.contact_cache = None
 
     def choose_first_contact(self):
         wd = self.app.wd
@@ -45,7 +46,7 @@ class contactHelper:
         self.fill_contact_form(contact)
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
         wd.find_element_by_link_text("home").click()
-        contact_cache = None
+        self.contact_cache = None
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd
@@ -57,6 +58,7 @@ class contactHelper:
 
     def count(self):
         wd = self.app.wd
+        self.app.open_home_page()
         return len(wd.find_elements_by_name("selected[]"))
 
     contact_cache = None
