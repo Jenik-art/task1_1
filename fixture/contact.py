@@ -1,4 +1,5 @@
 
+from model.contact import Contact
 class contactHelper:
 
     def __init__(self, app):
@@ -21,6 +22,8 @@ class contactHelper:
         self.change_field_value("mobile", contact.mobilephone)
         self.change_field_value("work", contact.workphone)
         self.change_field_value("email", contact.email)
+
+
 
     def delete_first_contact(self):
         wd = self.app.wd
@@ -52,3 +55,15 @@ class contactHelper:
     def count(self):
         wd = self.app.wd
         return len(wd.find_elements_by_name("selected[]"))
+
+
+    def get_contact_list(self):
+        wd = self.app.wd
+        self.app.open_home_page()
+        contacts =[]
+        for element in wd.find_elements_by_name("entry"):
+            text = element.text
+            id = element.find_element_by_tag_name("td").get_attribute("value")
+            contacts.append(Contact(lastname=text, id=id))
+        return contacts
+
