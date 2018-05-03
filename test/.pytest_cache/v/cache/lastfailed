@@ -1,5 +1,4 @@
 {
-  "test_add_contact.py::test_add_contact": true,
   "test_add_group.py::test_open": true,
   "test_del_group.py::test_delete_test_group": true
 }
