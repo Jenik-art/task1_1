@@ -15,6 +15,7 @@ class Application:
         if not (wd.current_url.endswith("/index.php") and len(wd.find_elements_by_name("searchform"))) > 0:
             wd.get("http://localhost/addressbook/index.php")
 
+
     def is_valid(self):
         try:
             self.wd.current_url

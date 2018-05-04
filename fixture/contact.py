@@ -24,33 +24,37 @@ class contactHelper:
         self.change_field_value("work", contact.workphone)
         self.change_field_value("email", contact.email)
 
-
-
-
     def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+
+    def delete_contact_by_index(self,index):
         wd = self.app.wd
-        self.choose_first_contact()
+        self.choose_contact_by_index(index)
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
         wd.find_element_by_link_text("home").click()
         self.contact_cache = None
 
-    def choose_first_contact(self):
+    def choose_contact_by_index(self,index):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
 
-    def edit_first_contact(self,contact):
+    def edit_first_contact(self):
+        self.edit_contact_by_index(0)
+
+    def edit_contact_by_index(self,index,contact):
         wd = self.app.wd
-        self.choose_first_contact()
+        self.choose_contact_by_index(index)
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         self.fill_contact_form(contact)
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
         wd.find_element_by_link_text("home").click()
+        self.app.open_home_page()
         self.contact_cache = None
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd
-
         if text is not None:
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
@@ -67,7 +71,7 @@ class contactHelper:
         if self.contact_cache is None:
             wd = self.app.wd
             self.app.open_home_page()
-            self.contact_cache = []
+            self.contact_cache =[]
             for element in wd.find_elements_by_name("entry"):
                 l_name = element.find_element_by_xpath(".//td[2]").text
                 f_name = element.find_element_by_xpath(".//td[3]").text
