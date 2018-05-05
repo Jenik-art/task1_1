@@ -40,13 +40,18 @@ class contactHelper:
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
 
+    def click_edit_by_index(self,index):
+        wd = self.app.wd
+        wd.find_elements_by_xpath("//table[@id='maintable']/tbody/tr/td[8]/a/img")[index].click()
+
     def edit_first_contact(self):
         self.edit_contact_by_index(0)
 
     def edit_contact_by_index(self,index,contact):
         wd = self.app.wd
         self.choose_contact_by_index(index)
-        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        #wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        self.click_edit_by_index(index)
         self.fill_contact_form(contact)
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
         wd.find_element_by_link_text("home").click()
