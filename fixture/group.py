@@ -43,7 +43,7 @@ class groupHelper:
     def edit_first_group(self):
         self.edit_group_by_index(0)
 
-    def edit_group_by_index(self,index, group):
+    def edit_group_by_index(self,index,group):
         wd = self.app.wd
         self.open_groups_page()
         self.select_group_by_index(index)
