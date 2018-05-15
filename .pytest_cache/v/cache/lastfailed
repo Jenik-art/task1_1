@@ -1,3 +1,23 @@
 {
-  "test/test_del_group.py::test_delete_some_group": true
+  "test/test_add_contact.py::test_add_contact[None:lastname <S4? zj8;firstnamepkL23m]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname$\"ak8;firstname$]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname%R;firstnameT23Oz@]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname&kp;firstnameU_ ]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname'6v Z;firstnameZ$ ])h]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname-0qM2;firstname6Vz]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname1;firstname]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname6<;,;firstnamebEx]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname;firstname$\\\\]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname;firstname]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastnameZ`1gaHG;firstnamew%DG]D [P]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname\\\\d<aBGe;firstname+]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname_9;firstname8X = *]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastname_hMQ;firstnamejY g D ]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastnamec@G& ;firstnameaHzNatq~r]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastnamei8`ix;firstnameL<VO*]rh]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastnamenl}2! \";firstname]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastnamer,3>1?=C;firstnameg]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastnames]iRzH;firstnamei.!M*Or]": true,
+  "test/test_add_contact.py::test_add_contact[None:lastnamey_|*;firstnamealnu  @M]": true,
+  "test/test_add_group.py::test_add_group[None:nameG\\\\,]kt;header0XQu+ $ag@S[;footerK*m: ?6`}RT!B]": true
 }

@@ -1,8 +1,3 @@
 [
-  "test_add_group.py::test_add_group[None:;;]",
-  "test_add_group.py::test_add_group[None:nameg ;header=DD9(37&v,pH;footer05]",
-  "test_add_group.py::test_add_group[None:name;header-'/M94v;footer0GHxZ]",
-  "test_add_group.py::test_add_group[None:namest|];header~7:H&/y;footer H /[X)F~o' m]",
-  "test_add_group.py::test_add_group[None:name);header6MWZ;]K?|I?*S-Pt ;footerM  +w&3@v>qFZ~ X Q]",
-  "test_add_group.py::test_add_group[None:name9v.f$gA;header9 P d#mO?cye;footerN 1 jaC ]"
+  "test_del_contact.py::test_del_some_contact"
 ]
