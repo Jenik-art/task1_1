@@ -1,4 +1,4 @@
 [
-  "test_add_group.py::test_add_group[None:Name1;Header1;Footer1]",
-  "test_add_group.py::test_add_group[None:Name2;Header2;Footer2]"
+  "test_add_contact.py::test_add_contact[None:lastnameO[OJBB7C;firstname]",
+  "test_add_contact.py::test_add_contact[None:lastname&<OSn&K;firstname]"
 ]
