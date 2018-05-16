@@ -1,3 +1,4 @@
 [
-  "test_del_contact.py::test_del_some_contact"
+  "test_add_group.py::test_add_group[None:Name1;Header1;Footer1]",
+  "test_add_group.py::test_add_group[None:Name2;Header2;Footer2]"
 ]
