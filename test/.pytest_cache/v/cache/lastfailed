@@ -11,8 +11,10 @@
   "test_add_contact.py::test_add_contact[None:lastname:lP;firstname?`(A}^19]": true,
   "test_add_contact.py::test_add_contact[None:lastname;firstnameMd0aUJig]": true,
   "test_add_contact.py::test_add_contact[None:lastname;firstname]": true,
+  "test_add_contact.py::test_add_contact[None:lastname;firstname^MNpD9w<u]": true,
   "test_add_contact.py::test_add_contact[None:lastname;firstnamedK/8]": true,
   "test_add_contact.py::test_add_contact[None:lastname;firstnameoS+'f]": true,
+  "test_add_contact.py::test_add_contact[None:lastname;firstname{]": true,
   "test_add_contact.py::test_add_contact[None:lastname<D7%*~?Z;firstname4`*+w P]": true,
   "test_add_contact.py::test_add_contact[None:lastnameFI );firstnameo<XI]": true,
   "test_add_contact.py::test_add_contact[None:lastnameHwD;firstnameLS]": true,
@@ -50,8 +52,8 @@
   "test_add_group.py::test_add_group[{'footer': 'footer47K;|10}7', 'header': 'header~lqx*VY.w @p>iX g@', 'id': None, 'name': 'name'}]": true,
   "test_add_group.py::test_add_group[{'footer': 'footer6s>zu', 'header': 'headerGOS2 ,L]a\\\\\\\\;g7|GH ', 'id': None, 'name': 'name '}]": true,
   "test_add_group.py::test_open": true,
+  "test_del_contact.py::test_del_some_contact": true,
   "test_del_group.py::test_delete_some_group": true,
   "test_del_group.py::test_delete_test_group": true,
-  "test_edit_contact.py::test_edit_some_contact": true,
   "test_edit_group.py::test_edit_first_group_name": true
 }

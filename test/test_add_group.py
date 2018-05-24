@@ -3,8 +3,6 @@
 
 from model.group import Group
 
-
-
 def test_add_group(app, db, json_groups):
     group = json_groups
     old_groups = db.get_group_list()

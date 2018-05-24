@@ -55,6 +55,18 @@ class groupHelper:
         self.return_to_groups_page(wd)
         self.group_cache = None
 
+    def edit_group_by_id(self, id, group):
+        wd = self.app.wd
+        self.open_groups_page()
+        self.select_group_by_id(id)
+        #edite group info
+        wd.find_element_by_name("edit").click()
+        self.fill_group_form(group)
+        # submit group creation
+        wd.find_element_by_name("update").click()
+        self.return_to_groups_page(wd)
+        self.group_cache = None
+
     def fill_group_form(self, group):
         wd = self.app.wd
         self.change_field_value("group_name", group.name)
@@ -100,4 +112,4 @@ class groupHelper:
 
     def select_group_by_id(self,id):
         wd = self.app.wd
-        wd.find_element_by_css_selector("input[value ='%s']"%id).click()
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
