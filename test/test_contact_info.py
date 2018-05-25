@@ -5,7 +5,7 @@ def test_contact_on_home_page(app,db):
     len_contact_from_home_page = app.contact.get_contact_list()
     for index in range(len(len_contact_from_home_page)):
         contact_from_home_page = app.contact.get_contact_list()[index]
-        contact_from_db = db.get_contact_list()
+        contact_from_db = db.get_contact_list()[index]
         assert contact_from_home_page.all_phones_from_home_page == merge_phones_like_on_home_page(contact_from_db)
         assert contact_from_home_page.all_emails_from_home_page == merge_emails_like_on_home_page(contact_from_db)
         assert contact_from_home_page.firstname == contact_from_db.firstname
