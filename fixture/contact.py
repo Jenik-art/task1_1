@@ -1,5 +1,7 @@
 import re
 from model.contact import Contact
+import time
+
 class contactHelper:
 
     def __init__(self, app):
@@ -82,6 +84,7 @@ class contactHelper:
         self.app.open_home_page()
         return len(wd.find_elements_by_name("selected[]"))
 
+
     contact_cache = None
 
     def get_contact_list(self):
@@ -147,6 +150,7 @@ class contactHelper:
         wd = self.app.wd
         self.choose_contact_by_id(id)
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
+        time.sleep(1)
         wd.switch_to_alert().accept()
         wd.find_element_by_link_text("home").click()
         self.contact_cache = None
