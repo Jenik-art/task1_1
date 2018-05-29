@@ -187,11 +187,11 @@ class contactHelper:
             index = randrange(len(contacts_in_group))
             self.add_contact_to_group(index,id)
 
-    def delete_contact_from_group(self,index, id):
+    def adelete_contact_from_group(self,index, id):
         wd = self.app.wd
         select = Select(wd.find_element_by_css_selector("select[name='group']"))
         select.select_by_value('%s' % id).click()
-        contacts_in_group = self.get_contact_list()
+        contacts_in_group = self.get_contact_list_from_goup_page()
         index = randrange(len(contacts_in_group))
         if contacts_in_group == []:
             self.add_contact_to_group(index, id)
@@ -202,11 +202,31 @@ class contactHelper:
             wd.find_element_by_link_text("home").click()
         self.contact_cache = None
 
-    def delete_contact_from_group(self, id):
+    def delete_contact_from_group(self, index):
         wd = self.app.wd
-        self.choose_group_with_contact(id)
+        self.choose_contact_by_index(index)
+        wd.find_element_by_name("remove").click()
+        wd.find_element_by_link_text("home").click()
+        self.app.open_home_page()
+        self.contact_cache = None
 
     def open_group_with_contact_page(self,id):
         wd = self.app.wd
         select = Select(wd.find_element_by_css_selector("select[name='group']"))
         select.select_by_value('%s' % id)
+
+    def get_contact_list_from_group_page(self):
+        if self.contact_cache is None:
+            wd = self.app.wd
+            self.contact_cache =[]
+            for element in wd.find_elements_by_name("entry"):
+                cells = element.find_elements_by_tag_name("td")
+                f_name = cells[2].text
+                l_name = cells[1].text
+                address= cells[3].text
+                all_emails=cells[4].text
+                id = cells[0].find_element_by_tag_name("input").get_attribute("id")
+                all_phones= cells[5].text
+                self.contact_cache.append(Contact(lastname=l_name,firstname = f_name, id=id, address=address,
+                                                  all_emails_from_home_page=all_emails, all_phones_from_home_page=all_phones))
+        return list(self.contact_cache)
