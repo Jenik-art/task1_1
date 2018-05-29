@@ -1,6 +1,12 @@
 import re
+
+from selenium.webdriver.support.select import Select
+
 from model.contact import Contact
 import time
+from model.group import Group
+import random
+from random import randrange
 
 class contactHelper:
 
@@ -129,8 +135,9 @@ class contactHelper:
         workphone = re.search("W: (.*)", text).group(1)
         mobilephone = re.search("M: (.*)", text).group(1)
         secondaryphone = re.search("P: (.*)", text).group(1)
+        memberof = re.search("Member of: (.*)", text).group(1)
         return Contact(homephone=homephone, workphone=workphone,
-                       mobilephone=mobilephone, secondaryphone=secondaryphone)
+                       mobilephone=mobilephone, secondaryphone=secondaryphone, memberof=memberof)
 
     def open_contact_to_edit_by_index(self,index):
         wd = self.app.wd
@@ -158,3 +165,48 @@ class contactHelper:
     def choose_contact_by_id(self, id):
         wd = self.app.wd
         wd.find_element_by_css_selector("input[value='%s']" % id).click()
+
+    def add_contact_to_group(self,index,id):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.choose_contact_by_index(index)
+        self.choose_group_for_contact(id)
+        wd.find_element_by_name("add").click()
+
+    def choose_group_for_contact(self,id):
+        wd = self.app.wd
+        select = Select(wd.find_element_by_css_selector("select[name='to_group']"))
+        select.select_by_value('%s' % id)
+
+    def choose_group_with_contact(self, id):
+        wd = self.app.wd
+        select = Select(wd.find_element_by_css_selector("select[name='group']"))
+        select.select_by_value('%s' % id)
+        contacts_in_group = self.get_contact_list()
+        if contacts_in_group == []:
+            index = randrange(len(contacts_in_group))
+            self.add_contact_to_group(index,id)
+
+    def delete_contact_from_group(self,index, id):
+        wd = self.app.wd
+        select = Select(wd.find_element_by_css_selector("select[name='group']"))
+        select.select_by_value('%s' % id).click()
+        contacts_in_group = self.get_contact_list()
+        index = randrange(len(contacts_in_group))
+        if contacts_in_group == []:
+            self.add_contact_to_group(index, id)
+        else:
+            self.choose_contact_by_index(index)
+            wd.find_element_by_name("remove").click()
+            wd.switch_to_alert().accept()
+            wd.find_element_by_link_text("home").click()
+        self.contact_cache = None
+
+    def delete_contact_from_group(self, id):
+        wd = self.app.wd
+        self.choose_group_with_contact(id)
+
+    def open_group_with_contact_page(self,id):
+        wd = self.app.wd
+        select = Select(wd.find_element_by_css_selector("select[name='group']"))
+        select.select_by_value('%s' % id)
