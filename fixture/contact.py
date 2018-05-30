@@ -187,20 +187,6 @@ class contactHelper:
             index = randrange(len(contacts_in_group))
             self.add_contact_to_group(index,id)
 
-    def adelete_contact_from_group(self,index, id):
-        wd = self.app.wd
-        select = Select(wd.find_element_by_css_selector("select[name='group']"))
-        select.select_by_value('%s' % id).click()
-        contacts_in_group = self.get_contact_list_from_goup_page()
-        index = randrange(len(contacts_in_group))
-        if contacts_in_group == []:
-            self.add_contact_to_group(index, id)
-        else:
-            self.choose_contact_by_index(index)
-            wd.find_element_by_name("remove").click()
-            wd.switch_to_alert().accept()
-            wd.find_element_by_link_text("home").click()
-        self.contact_cache = None
 
     def delete_contact_from_group(self, index):
         wd = self.app.wd

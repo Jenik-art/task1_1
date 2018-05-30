@@ -14,5 +14,5 @@ def test_add_contact_to_group(app, db, check_ui):
     group = random.choice(groups)
     contact = app.contact.add_contact_to_group(index,group.id)
     get_contact_from_view_page = app.contact.get_contact_info_from_view_page(index)
-    assert group =
+    
 
