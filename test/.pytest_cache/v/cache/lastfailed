@@ -25,6 +25,7 @@
   "test_add_contact.py::test_add_contact[None:lastnamen< ;firstnamemC lrH=pW]": true,
   "test_add_contact.py::test_add_contact[None:lastnamenH [{$;C;firstname1S4 ]": true,
   "test_add_contact.py::test_add_contact[None:lastnameu>\\\\ N;firstnameJo8]": true,
+  "test_add_contact_to_group.py::test_add_contact_to_group": true,
   "test_add_group.py::test_add_group": true,
   "test_add_group.py::test_add_group[None:name (M ;header7N1*V$6;footer00NS6rnsA]c=>{V 7 ]": true,
   "test_add_group.py::test_add_group[None:name ;header{\"USJ\";footerUR4v8N0 HG=~[ ]": true,

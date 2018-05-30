@@ -3,6 +3,10 @@ from random import randrange
 from model.contact import Contact
 from model.group import Group
 import random
+from fixture.orm import ORMFixture
+
+db_orm = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
+
 
 def test_delete_contact_from_group(app, db, check_ui):
     if len(db.get_contact_list()) == 0:
@@ -22,4 +26,4 @@ def test_delete_contact_from_group(app, db, check_ui):
     else:
         index = randrange(len(contacts_in_group))
         app.contact.delete_contact_from_group(index)
-
+    assert app.contact.get_contact_list_from_group_page() in db_orm.get_contacts_not_in_group(group)
