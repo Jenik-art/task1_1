@@ -15,7 +15,11 @@ def test_add_contact_to_group(app, db, check_ui):
     index = randrange(len(len_contact_from_home_page))
     groups = db.get_group_list()
     group = random.choice(groups)
-    contact = app.contact.add_contact_to_group(index,group.id)
-    assert app.contact.get_contact_list_from_group_page() in db_orm.get_contacts_in_group(group)
+    if len(app.contact.get_contact_list_from_group_page()) == len(db.get_contact_list()) or app.contact.get_contact_list()[index] in db_orm.get_contacts_in_group(group) :
+        app.contact.open_group_with_contact_page(group.id)
+        app.contact.delete_contact_from_group(index)
+    else:
+        contact = app.contact.add_contact_to_group(index,group.id)
+    assert app.contact.get_contact_list()[index] in db_orm.get_contacts_in_group(group)
 
 

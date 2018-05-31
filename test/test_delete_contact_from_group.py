@@ -26,4 +26,4 @@ def test_delete_contact_from_group(app, db, check_ui):
     else:
         index = randrange(len(contacts_in_group))
         app.contact.delete_contact_from_group(index)
-    assert app.contact.get_contact_list_from_group_page() in db_orm.get_contacts_not_in_group(group)
+    assert app.contact.get_contact_list()[index] in db_orm.get_contacts_not_in_group(group)
