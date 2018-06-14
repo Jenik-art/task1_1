@@ -1,4 +1,3 @@
 [
-  "test/test_add_contact.py::test_add_contact[None:lastname'6v Z;firstnameZ$ ])h]",
-  "test/test_add_contact.py::test_add_contact[None:lastname< LP;firstname{x]"
+  "bdd/group_scenarios.py::test_delete_group"
 ]

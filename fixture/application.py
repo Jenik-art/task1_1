@@ -3,6 +3,7 @@ from fixture.session import SessionHelper
 from fixture.group import groupHelper
 from fixture.contact import contactHelper
 import pytest
+
 class Application:
 
     def __init__(self,browser, base_url):
